@@ -31,5 +31,7 @@ namespace ASF.UI.WbSite.Models
         }
 
         public System.Data.Entity.DbSet<ASF.Entities.Category> Categories { get; set; }
+
+        public System.Data.Entity.DbSet<ASF.Entities.Country> Countries { get; set; }
     }
 }
