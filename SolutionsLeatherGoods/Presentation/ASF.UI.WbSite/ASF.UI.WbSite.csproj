@@ -574,6 +574,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Business\ASF.Business\ASF.Business.csproj">
+      <Project>{1290a947-f5d1-45b8-b19a-e0f9185de46b}</Project>
+      <Name>ASF.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Shared\ASF.Entities\ASF.Entities.csproj">
       <Project>{5f7c08e8-891e-41c7-9e8d-e94b75222c0b}</Project>
       <Name>ASF.Entities</Name>
