@@ -20,8 +20,8 @@ namespace ASF.Business
         
             public void Remove(int id)
             {
-                var categoryDac = new CategoryDac();
-                categoryDac.DeleteById(id);
+            var countryDAC = new CountryDAC();
+            countryDAC.DeleteById(id);
             }
         
             public List<Country> All()

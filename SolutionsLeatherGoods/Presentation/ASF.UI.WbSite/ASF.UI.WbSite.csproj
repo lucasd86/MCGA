@@ -245,8 +245,10 @@
   <ItemGroup>
     <Compile Include="Areas\Category\CategoryAreaRegistration.cs" />
     <Compile Include="Areas\Category\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Clients\ClientsAreaRegistration.cs" />
     <Compile Include="Areas\Countries\Controllers\CountryController.cs" />
     <Compile Include="Areas\Countries\CountriesAreaRegistration.cs" />
+    <Compile Include="Areas\Orders\OrdersAreaRegistration.cs" />
     <Compile Include="Constants\ExtensionMethods\HtmlLabelExtensions.cs" />
     <Compile Include="Constants\ExtensionMethods\TypeFactory.cs" />
     <Compile Include="Constants\ExtensionMethods\WebGridExtensions.cs" />
@@ -278,6 +280,7 @@
     <Compile Include="Services\BrowserConfig\BrowserConfigService.cs" />
     <Compile Include="Services\BrowserConfig\IBrowserConfigService.cs" />
     <Compile Include="Services\Cache\CacheService.cs" />
+    <Compile Include="Services\Cache\DataCache.cs" />
     <Compile Include="Services\Cache\ICacheService.cs" />
     <Compile Include="Services\Logging\ILoggingService.cs" />
     <Compile Include="Services\Logging\LoggingService.cs" />
@@ -420,6 +423,10 @@
     <Content Include="Areas\Countries\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Countries\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Countries\Views\Country\Index.cshtml" />
+    <Content Include="Areas\Clients\Views\web.config" />
+    <Content Include="Areas\Orders\Views\web.config" />
+    <Content Include="Areas\Category\Views\Category\Edit.cshtml" />
+    <Content Include="Areas\Category\Views\Category\Delete.cshtml" />
     <None Include="job_scheduling_data_2_0.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -573,7 +580,13 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Category\Models\" />
+    <Folder Include="Areas\Clients\Controllers\" />
+    <Folder Include="Areas\Clients\Models\" />
+    <Folder Include="Areas\Clients\Views\Shared\" />
     <Folder Include="Areas\Countries\Models\" />
+    <Folder Include="Areas\Orders\Controllers\" />
+    <Folder Include="Areas\Orders\Models\" />
+    <Folder Include="Areas\Orders\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
@@ -581,10 +594,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Business\ASF.Business\ASF.Business.csproj">
-      <Project>{1290a947-f5d1-45b8-b19a-e0f9185de46b}</Project>
-      <Name>ASF.Business</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Shared\ASF.Entities\ASF.Entities.csproj">
       <Project>{5f7c08e8-891e-41c7-9e8d-e94b75222c0b}</Project>
       <Name>ASF.Entities</Name>

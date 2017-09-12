@@ -18,8 +18,32 @@ namespace ASF.Services.Contracts
     [DataContract]
     public class AllResponse
     {
+
         [DataMember]
-        public List<Category> Result { get; set; }
+        public List<Cart> CartResult { get; set; }
+        [DataMember]
+        public List<CartItem> CartItemResult { get; set; }
+        [DataMember]
+        public List<Category> CategoryResult { get; set; }
+        [DataMember]
+        public List<Client> ClientResult { get; set; }
+        [DataMember]
+        public List<Country> CountryResult { get; set; }
+        [DataMember]
+        public List<Dealer> Dealer { get; set; }
+        [DataMember]
+        public List<Order> OrderResult { get; set; }
+        [DataMember]
+        public List<OrderDetail> OrderDetailResult { get; set; }
+        [DataMember]
+        public List<OrderNumber> OrderNumberResult { get; set; }
+        [DataMember]
+        public List<Product> ProductResult { get; set; }
+        [DataMember]
+        public List<Rating> RatingResult { get; set; }
+        [DataMember]
+        public List<Setting> SettingResult { get; set; }
+
     }
 }
 
