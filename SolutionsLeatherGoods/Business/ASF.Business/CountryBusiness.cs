@@ -38,8 +38,10 @@ namespace ASF.Business
             }
             public void Edit(Country country)
             {
+
                 var countryDAC = new CountryDAC();
-                countryDAC.UpdateById(country);
+            country.ChangedOn = DateTime.Now;
+            countryDAC.UpdateById(country);
             }
         }
     }

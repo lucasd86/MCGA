@@ -10,7 +10,118 @@ using ASF.Services.Contracts;
 
 namespace ASF.Services.Http
 {
-    class CartItemService
+
+    [RoutePrefix("rest/CartItem")]
+    public class CartItemService : ApiController
     {
+        [HttpPost]
+        [Route("Add")]
+        public CartItem Add(CartItem cartitem)
+        {
+            try
+            {
+                var bc = new CartItemBusiness();
+                return bc.Add(cartitem);
+            }
+            catch (Exception ex)
+            {
+                var httpError = new HttpResponseMessage()
+                {
+                    StatusCode = (HttpStatusCode)422,
+                    ReasonPhrase = ex.Message
+                };
+
+                throw new HttpResponseException(httpError);
+            }
+        }
+
+        [HttpGet]
+        [Route("All")]
+        public AllResponse All()
+        {
+            try
+            {
+                var response = new AllResponse();
+                var bc = new CartItemBusiness();
+                response.CartItemResult = bc.All();
+                return response;
+            }
+            catch (Exception ex)
+            {
+                var httpError = new HttpResponseMessage()
+                {
+                    StatusCode = (HttpStatusCode)422,
+                    ReasonPhrase = ex.Message
+                };
+
+                throw new HttpResponseException(httpError);
+            }
+        }
+
+        [HttpPost]
+        [Route("Edit")]
+        public void Edit(CartItem cartitem)
+        {
+            try
+            {
+                var bc = new CartItemBusiness();
+                bc.Edit(cartitem);
+            }
+            catch (Exception ex)
+            {
+                var httpError = new HttpResponseMessage()
+                {
+                    StatusCode = (HttpStatusCode)422,
+                    ReasonPhrase = ex.Message
+                };
+
+                throw new HttpResponseException(httpError);
+            }
+        }
+
+        [HttpGet]
+        [Route("Find")]
+        public FindResponse Find(int id)
+        {
+            try
+            {
+                var response = new FindResponse();
+                var bc = new CartItemBusiness();
+                response.CartItemResult = bc.Find(id);
+                return response;
+            }
+            catch (Exception ex)
+            {
+                var httpError = new HttpResponseMessage()
+                {
+                    StatusCode = (HttpStatusCode)422,
+                    ReasonPhrase = ex.Message
+                };
+
+                throw new HttpResponseException(httpError);
+            }
+        }
+
+        [HttpPost]
+        [Route("Remove/{id}")]
+        public void Remove(int id)
+        {
+            try
+            {
+                var bc = new CartItemBusiness();
+                bc.Remove(id);
+            }
+            catch (Exception ex)
+            {
+                var httpError = new HttpResponseMessage()
+                {
+                    StatusCode = (HttpStatusCode)422,
+                    ReasonPhrase = ex.Message
+                };
+
+                throw new HttpResponseException(httpError);
+            }
+        }
     }
 }
+

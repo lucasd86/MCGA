@@ -15,6 +15,11 @@ namespace ASF.Data
         
         public Country Create(Country country)
         {
+            country.ChangedBy = 0;
+            country.CreatedBy = 0;
+            country.CreatedOn = DateTime.Now;
+            country.ChangedOn = DateTime.Now;
+
             const string sqlStatement = "INSERT INTO dbo.Country ([Name], [CreatedOn], [CreatedBy], [ChangedOn], [ChangedBy]) " +
                 "VALUES(@Name, @CreatedOn, @CreatedBy, @ChangedOn, @ChangedBy); SELECT SCOPE_IDENTITY();";
 
@@ -35,6 +40,8 @@ namespace ASF.Data
 
         public void UpdateById(Country country)
         {
+            country.ChangedBy = 0;
+            country.ChangedOn = DateTime.Now;
             const string sqlStatement = "UPDATE dbo.Country " +
                 "SET [Name]=@Name, " +
                     "[CreatedOn]=@CreatedOn, " +
@@ -72,7 +79,7 @@ namespace ASF.Data
         public Country SelectById(int id)
         {
             const string sqlStatement = "SELECT [Id], [Name], [CreatedOn], [CreatedBy], [ChangedOn], [ChangedBy] " +
-                "FROM dbo.Category WHERE [Id]=@Id ";
+                "FROM dbo.Country WHERE [Id]=@Id ";
 
             Country country = null;
             var db = DatabaseFactory.CreateDatabase(ConnectionName);

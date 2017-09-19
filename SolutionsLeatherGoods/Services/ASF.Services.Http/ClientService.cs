@@ -10,7 +10,119 @@ using ASF.Services.Contracts;
 
 namespace ASF.Services.Http
 {
-    class ClientService
-    {
+   
+       
+        [RoutePrefix("rest/Client")]
+        public class ClientService : ApiController
+        {
+            [HttpPost]
+            [Route("Add")]
+            public Client Add(Client client)
+            {
+                try
+                {
+                    var bc = new ClientBusiness();
+                    return bc.Add(client);
+                }
+                catch (Exception ex)
+                {
+                    var httpError = new HttpResponseMessage()
+                    {
+                        StatusCode = (HttpStatusCode)422,
+                        ReasonPhrase = ex.Message
+                    };
+
+                    throw new HttpResponseException(httpError);
+                }
+            }
+
+            [HttpGet]
+            [Route("All")]
+            public AllResponse All()
+            {
+                try
+                {
+                    var response = new AllResponse();
+                    var bc = new ClientBusiness();
+                    response.ClientResult = bc.All();
+                    return response;
+                }
+                catch (Exception ex)
+                {
+                    var httpError = new HttpResponseMessage()
+                    {
+                        StatusCode = (HttpStatusCode)422,
+                        ReasonPhrase = ex.Message
+                    };
+
+                    throw new HttpResponseException(httpError);
+                }
+            }
+
+            [HttpPost]
+            [Route("Edit")]
+            public void Edit(Client client)
+            {
+                try
+                {
+                    var bc = new ClientBusiness();
+                    bc.Edit(client);
+                }
+                catch (Exception ex)
+                {
+                    var httpError = new HttpResponseMessage()
+                    {
+                        StatusCode = (HttpStatusCode)422,
+                        ReasonPhrase = ex.Message
+                    };
+
+                    throw new HttpResponseException(httpError);
+                }
+            }
+
+            [HttpGet]
+            [Route("Find")]
+            public FindResponse Find(int id)
+            {
+                try
+                {
+                    var response = new FindResponse();
+                    var bc = new ClientBusiness();
+                    response.ClientResult = bc.Find(id);
+                    return response;
+                }
+                catch (Exception ex)
+                {
+                    var httpError = new HttpResponseMessage()
+                    {
+                        StatusCode = (HttpStatusCode)422,
+                        ReasonPhrase = ex.Message
+                    };
+
+                    throw new HttpResponseException(httpError);
+                }
+            }
+
+            [HttpPost]
+            [Route("Remove/{id}")]
+            public void Remove(int id)
+            {
+                try
+                {
+                    var bc = new ClientBusiness();
+                    bc.Remove(id);
+                }
+                catch (Exception ex)
+                {
+                    var httpError = new HttpResponseMessage()
+                    {
+                        StatusCode = (HttpStatusCode)422,
+                        ReasonPhrase = ex.Message
+                    };
+
+                    throw new HttpResponseException(httpError);
+                }
+            }
+        }
     }
-}
+

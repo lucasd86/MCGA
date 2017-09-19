@@ -9,26 +9,19 @@ using ASF.UI.Process;
 namespace ASF.UI.WbSite.Areas.Category.Controllers
 {
     public class CategoryController : Controller
-
     {
-
         public ActionResult Index()
         {
             var cp = new CategoryProcess();
             var lista = cp.SelectList();
             return View(lista);
         }
-
-
         public ActionResult Detail(int id)
         {
             var cp = new CategoryProcess();
             var lista = cp.FindByID(id);
             return View(lista);
         }
-
-
-
         [HttpGet]
         public ActionResult Create()
         {

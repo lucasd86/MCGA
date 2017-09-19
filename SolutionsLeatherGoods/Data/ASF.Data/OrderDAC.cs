@@ -9,7 +9,7 @@ using ASF.Entities;
 
 namespace ASF.Data
 {
-    class OrderDAC : DataAccessComponent
+    public class OrderDAC : DataAccessComponent
     {
 
        

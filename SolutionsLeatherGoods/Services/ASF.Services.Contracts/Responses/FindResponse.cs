@@ -29,7 +29,7 @@ namespace ASF.Services.Contracts
         [DataMember]
         public Country CountryResult { get; set; }
         [DataMember]
-        public Dealer Dealer { get; set; }
+        public Dealer DealerResult { get; set; }
         [DataMember]
         public Order OrderResult { get; set; }
         [DataMember]

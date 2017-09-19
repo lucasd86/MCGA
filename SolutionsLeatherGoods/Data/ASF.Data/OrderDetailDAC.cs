@@ -9,7 +9,7 @@ using ASF.Entities;
 
 namespace ASF.Data
 {
-    class OrderDetailDAC : DataAccessComponent
+    public class OrderDetailDAC : DataAccessComponent
     {
         public OrderDetail Create(OrderDetail orderdetail)
         {

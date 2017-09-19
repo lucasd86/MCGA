@@ -30,7 +30,7 @@ namespace ASF.Services.Contracts
         [DataMember]
         public List<Country> CountryResult { get; set; }
         [DataMember]
-        public List<Dealer> Dealer { get; set; }
+        public List<Dealer> DealerResult { get; set; }
         [DataMember]
         public List<Order> OrderResult { get; set; }
         [DataMember]
